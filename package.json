@@ -1,0 +1,44 @@
+{
+    "name": "cusp",
+    "version": "0.1.0",
+    "description": "A modern web micro framework built on CSP design patterns",
+    "author": "Derek Kent <dak@dak.org>",
+    "scripts": {
+        "test": "node --harmony ./node_modules/.bin/gulp test"
+    },
+    "main": "./src/cusp.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/dak/cusp.git"
+    },
+    "bugs": {
+        "url": "https://github.com/dak/cusp/issues"
+    },
+    "keywords": [
+        "cusp",
+        "framework",
+        "model",
+        "view",
+        "controller",
+        "csp",
+        "coroutines",
+        "concurrency",
+        "es6"
+    ],
+    "dependencies": {
+        "js-csp": "~0.3.1"
+    },
+    "devDependencies": {},
+    "engines": {
+        "node": ">=0.11.14"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/dak/cusp/raw/master/LICENSE"
+    }
+}
