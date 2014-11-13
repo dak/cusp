@@ -24,8 +24,14 @@ function config (options) {
 class Region {
 
     constructor (el, parent) {
-        this.el = el;
+        if (typeof el === 'string') {
+            this.el = document.querySelector(el);
+        } else {
+            this.el = el;
+        }
+
         this.parent = parent;
+        this.controllers = [];
     }
 
     show (controller) {
@@ -38,7 +44,6 @@ class Region {
             controller = new controller();
         }
 
-        this.el = this.parent.el;
         controller.parent = this.parent;
         this.controllers = this.controllers || [];
         this.controllers.push(controller);
@@ -57,12 +62,12 @@ class Region {
             this.el.removeChild(this.el.firstChild);
         }
 
-        delete this.el;
         delete this.controllers;
     }
 
     close () {
         this.empty();
+        delete this.el;
         delete this.parent;
     }
 
@@ -77,7 +82,7 @@ class Regions {
             this[keys[i]] = new Region(regions[keys[i]], controller);
         }
 
-        this.self = new Region(null, controller);
+        this.self = new Region(controller.el, controller);
     }
 
 }
